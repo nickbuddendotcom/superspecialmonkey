@@ -32,16 +32,17 @@ define([
           self.addImage( current_image );
         }, this);
 
+
+        Backbone.Mediator.subscribe('canvas:pouchColor', function() {
+          var color = $(".current_color").css('backgroundColor');
+          self.addPouch( color );
+        }, this);
+
       },
 
       afterRender: function() {
         var self = this;
         self.paper = Raphael("editor", 672, 800);
-
-        self.pouch = self.image || {};
-
-        // testing
-        self.addPouch();
       },
 
       addImage: function(img_url) {
@@ -61,12 +62,12 @@ define([
         });
       },
 
-      addPouch: function() {
+      addPouch: function( color ) {
         var self        = this;
         self.pouch      = self.paper.rect(100, 100, 100, 50, 4);
 
         // testing...
-        self.pouch.attr("fill", "blue");
+        self.pouch.attr("fill", color);
 
         self.pouchTransform = self.paper.freeTransform(self.pouch);
 
