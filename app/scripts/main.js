@@ -4,7 +4,9 @@ require.config({
 	      jqueryui                 : '../bower_components/jquery.ui/jqueryui',
 	      underscore               : '../bower_components/lodash/dist/lodash',
 	      backbone                 : '../bower_components/backbone/backbone',
-	      'mediator-js'            : '../bower_components/mediator-js/lib/mediator'
+	      'mediator-js'            : '../bower_components/mediator-js/lib/mediator',
+	      raphael 								 : '../bower_components/raphael/raphael',
+	      freeTransform        		 : '../bower_components/raphael.free_transform/raphael.free_transform'
     },
     shim: {
 	    underscore : {
@@ -17,6 +19,14 @@ require.config({
 	    'mediator-js': {
 	      deps: [],
 	      exports: 'mediator-js'
+	    },
+	    raphael : {
+	    	deps: [],
+	    	exports: 'raphael'
+	    },
+	    raphaelFreeTransform: {
+	    	deps: [],
+	    	exports: 'freeTransform'
 	    }
     }
 });

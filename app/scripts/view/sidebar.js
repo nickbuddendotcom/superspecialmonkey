@@ -18,11 +18,6 @@ define([
       el : "#sidebar",
 
       events: {
-        "click .something" : "doSomething"
-      },
-
-      doSomething: function(e) {
-
       },
 
       model: new Backbone.Model(),

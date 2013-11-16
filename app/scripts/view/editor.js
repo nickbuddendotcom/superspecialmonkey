@@ -3,13 +3,17 @@ define([
   'jquery',
   'backbone',
   'mediator-js',
-  'view/_base'
+  'view/_base',
+  'raphael',
+  'freeTransform'
 ], function(
   _,
   $,
   Backbone,
   mediator,
-  BaseView
+  BaseView,
+  raphael,
+  freeTransform
 ) {
     'use strict';
 
@@ -19,18 +23,29 @@ define([
 
       model: new Backbone.Model(),
 
-      events: {
-        'click .something' : 'dothis'
-      },
-
       initialize: function() {
         var self = this;
-        console.log('init');
+        this.on('render', self.afterRender);
       },
 
-      render: function() {
-        console.log('working');
+      afterRender: function() {
+        var self = this;
+        self.paper = Raphael("editor", 672, 800);
+
+        // testing
+        self.setImage('http://imgs.steps.dragoart.com/how-to-draw-a-baby-monkey-step-5_1_000000007630_5.jpg');
+      },
+
+      setImage: function(img_url) {
+        var self      = this,
+            img       = self.paper.image(img_url, 100, 100, 200, 200),
+            transform = self.paper.freeTransform(img);
+
+        transform.setOpts({
+          scale: false
+        });
       }
+
     });
   }
 );
