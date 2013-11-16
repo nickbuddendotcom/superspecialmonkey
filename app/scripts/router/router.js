@@ -1,11 +1,15 @@
 define([
   'underscore',
   'jquery',
-  'backbone'
+  'backbone',
+  'view/editor',
+  'view/sidebar'
 ], function(
   _,
   $,
-  Backbone
+  Backbone,
+  Editor,
+  Sidebar
 ) {
     'use strict';
 
@@ -22,9 +26,11 @@ define([
 
     // ### DEFAULT ROUTE
     app_router.on('route:default', function(path){
+      var editor = new Editor();
+      editor.render();
 
-      // initialize all the stuff
-
+      var sidebar = new Sidebar();
+      sidebar.render();
     });
 
   };

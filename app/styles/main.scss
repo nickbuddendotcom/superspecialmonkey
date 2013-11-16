@@ -1,0 +1,39 @@
+@import "compass";
+@import "compass/reset";
+
+/* ============================================================= */
+/* General */
+/* ============================================================= */
+
+body {
+	background: white;
+	@include box-sizing(border-box);
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/* ============================================================= */
+/* Editor */
+/* ============================================================= */
+
+#editor {
+	width: 670px;
+	float: left;
+	border: 1px solid green;
+	height: 900px; // temp
+}
+
+/* ============================================================= */
+/* Sidebar */
+/* ============================================================= */
+
+#sidebar {
+	width: 300px;
+	float: right;
+	border: 1px solid red;
+	height: 900px; // temp
+}

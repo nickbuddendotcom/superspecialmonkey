@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        jquery: '../bower_components/jquery/jquery',
+        jquery                   : '../bower_components/jquery/jquery',
 	      jqueryui                 : '../bower_components/jquery.ui/jqueryui',
 	      underscore               : '../bower_components/lodash/dist/lodash',
 	      backbone                 : '../bower_components/backbone/backbone',
@@ -30,3 +30,4 @@ require(['app', 'jquery', 'router/router'], function (app, $, Router) {
 		});
 
 });
+

@@ -6,7 +6,9 @@ define([
 ], function ($, Backbone, _) {
     'use strict';
 
-    var app = app || {};
+    var app = app || {
+        root: "/"
+    };
 
     return _.extend(app, Backbone.Events);
 });
