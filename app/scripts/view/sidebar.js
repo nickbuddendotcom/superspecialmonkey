@@ -2,13 +2,11 @@ define([
   'underscore',
   'jquery',
   'backbone',
-  'mediator-js',
   'view/_base'
 ], function(
   _,
   $,
   Backbone,
-  mediator,
   BaseView
 ) {
     'use strict';
@@ -23,9 +21,12 @@ define([
 
       sidebarImageHandler: function(e) {
         var img = $(e.currentTarget).data('img-url');
-        console.log(img);
-        console.log('mediator', mediator);
-        // mediator.publish('change:image', "rwar");
+
+        // dumb way to set current image
+        this.$el.find(".image").not(e.currentTarget).removeClass('current_image');
+        $(e.currentTarget).addClass('current_image');
+
+        Backbone.Mediator.publish('canvas:image');
       },
 
       model: new Backbone.Model(),

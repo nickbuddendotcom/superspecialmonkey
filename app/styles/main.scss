@@ -36,4 +36,18 @@ body {
 	float: right;
 	border: 1px solid red;
 	height: 900px; // temp
+
+	.image {
+		max-width: 50px;
+		max-height: 50px;
+		display: inline;
+		margin: 0 15px 15px 0;
+
+		&:nth-child(4n+1) {
+			clear: left;
+		}
+		&:nth-child(4n) {
+			margin-right: 0;
+		}
+	}
 }

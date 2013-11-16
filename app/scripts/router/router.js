@@ -26,6 +26,7 @@ define([
 
     // ### DEFAULT ROUTE
     app_router.on('route:default', function(path){
+
       var editor = new Editor();
       editor.render();
 

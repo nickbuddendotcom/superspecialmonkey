@@ -217,7 +217,7 @@
             subsAfter = this._subscribers.length;
             y = subsAfter;
             if (subsAfter === subsBefore - 1){
-              x--;              
+              x--;
             }
             called = true;
           }
@@ -261,7 +261,7 @@
     getChannel: function(namespace){
       var channel = this._channels,
           namespaceHierarchy = namespace.split(':'),
-          x = 0, 
+          x = 0,
           y = namespaceHierarchy.length;
 
       if(namespace === ''){
@@ -354,4 +354,4 @@
 
   return Mediator;
 }));
-  
+

@@ -1,13 +1,11 @@
 define([
   'underscore',
   'jquery',
-  'backbone',
-  'mediator-js'
+  'backbone'
 ], function(
   _,
   $,
-  Backbone,
-  mediator
+  Backbone
 ) {
     'use strict';
 
