@@ -18,11 +18,14 @@ define([
       el : "#sidebar",
 
       events: {
-        "click .something" : "doSomething"
-      },
+        "click .image" : "sidebarImageHandler"
+      },//jquery equiv. doSomething is the function
 
-      doSomething: function(e) {
-
+      sidebarImageHandler: function(e) {
+        var img = $(e.currentTarget).data('img-url');
+        console.log(img);
+        console.log('mediator', mediator);
+        // mediator.publish('change:image', "rwar");
       },
 
       model: new Backbone.Model(),
@@ -35,7 +38,6 @@ define([
 
       afterRender: function() {
         console.log('rendered');
-        this.$el.html('test');
       }
 
     });
