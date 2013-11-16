@@ -7,7 +7,7 @@
 
 body {
 	background: white;
-	@include box-sizing(border-box);
+	// @include box-sizing(border-box);
 }
 
 .wrapper {
@@ -52,6 +52,6 @@ body {
 	}
 	.color {
 		display: inline-block;
-		@include border-radius(6px);
+		// @include border-radius(6px);
 	}
 }
