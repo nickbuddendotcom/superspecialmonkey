@@ -102,11 +102,38 @@ define([
             draw: 'bbox'
           });
 
+          // Click Callback
+          self.pins[img_url].el.mousedown(function(e) {
+
+            // for testing...this should go in the if()
+            // also this will need to be called when inserting a new image
+            self.hideOtherHandles( img_url );
+
+            // If we're clicking an element without visible handles, show its handles and hide the handles of all others
+            if(!self.pins[img_url].transform.handles.bbox) {
+              self.pins[img_url].transform.showHandles();
+            }
+
+          });
+
           pins.push(img_url);
 
         }
 
         self.model.set("pins", pins ).trigger("change:pins");
+      },
+
+      hideOtherHandles: function( active_image_url ) {
+        var self = this;
+
+        _.each(self.pins, function(element, index, list) {
+          if(element !== self.pins[active_image_url] ) {
+            // element.transform.hideHandles();
+            // element.transform.atts({ "opacity" : ".5" });
+            console.log('element', element);
+          }
+        });
+
       },
 
       setScene: function( img_url ) {
