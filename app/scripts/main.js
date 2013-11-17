@@ -6,7 +6,8 @@ require.config({
 	      backbone                 : '../bower_components/backbone/backbone',
 	      mediator                 : 'support/backbone.mediator',
 	      raphael 								 : '../bower_components/raphael/raphael',
-	      freeTransform        		 : '../bower_components/raphael.free_transform/raphael.free_transform'
+	      freeTransform        		 : '../bower_components/raphael.free_transform/raphael.free_transform',
+	    html2canvas				 : '../bower_components/html2canvas/build/html2canvas'
     },
     shim: {
 	    underscore : {
