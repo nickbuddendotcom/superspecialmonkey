@@ -11,8 +11,8 @@ body {
 }
 
 .wrapper {
-	width: 1000px;
-	margin: 0 auto;
+	// width: 1000px;
+	// margin: 0 auto;
 	overflow: hidden;
 }
 
@@ -24,6 +24,7 @@ body {
 	position: relative;
 	width: 1024px;
 	height: 768px;
+	float: left;
 }
 .editor {
 	float: left;
@@ -36,11 +37,11 @@ body {
 }
 
 #tshirt {
-	width: 227px;
-	height: 177px;
+	width: 295px;
+	height: 230px;
 	position: absolute;
-	left: 405px;
-	top: 365px;
+	left: 358px;
+	top: 407px;
 }
 
 #editor {
@@ -105,70 +106,10 @@ body {
 			@include transition-timing-function(ease-in);
 		}
 	}
-
-
-/*
-	.grid_cell {
-		width: 60px;
-		height: 60px;
-		display: block;
-		margin: 0 4px 4px 0;
-		float: left;
-		position: relative;
-
-		// Put the grid into rows
-		&:nth-child(4n+1) {
-			clear: left;
-		}
-		&:nth-child(4n) {
-			margin-right: 0;
-		}
-		.cell_cont {
-			cursor: pointer;
-			position: absolute;
-			top: 5px;
-			left: 5px;
-			width: 50px;
-			height: 50px;
-			display: block;
-			@include border-radius($ui_border_radius + px);
-			overflow: hidden;
-			@include background-image($ui_gradient);
-			@include box-shadow($ui_grid_cell_box_shadow);
-
-			svg {
-				fill: $ui_color;
-			}
-		}
-		.grid_on {
-			@include opacity(0);
-			position:absolute;
-			top: 5%;
-			left: 5%;
-			width: 90%;
-			height: 90%;
-			display: block;
-			@include background-image($ui_grid_on_gradient);
-			border: 1px solid $ui_grid_on_border_color;
-			@include border-radius(($ui_border_radius + 4) + px);
-			@include box-shadow($ui_grid_on_box_shadow);
-			@include transition-property(width,height,top,left);
-			@include transition-duration(.035s);
-			@include transition-timing-function(ease-in);
-		}
-		&.open {
-			.cell_cont {
-				@include box-shadow($ui_grid_open_cell_box_shadow);
-			}
-			.grid_on {
-				@include opacity(1);
-				width: 100%;
-				height: 100%;
-				left: 0;
-				top: 0;
-			}
-		}
+}
+// pockets only
+#pockets {
+	img {
+		background: #fff;
 	}
-	*/
-
 }

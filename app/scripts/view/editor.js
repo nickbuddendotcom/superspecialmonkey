@@ -32,11 +32,26 @@ define([
           self.addImage( current_image );
         }, this);
 
+        // TODO: DRY these functions...
+        Backbone.Mediator.subscribe('canvas:pocket', function() {
+          var current = $("#pockets .current_cell img").attr('src');
+          self.addPocket( current );
+        }, this);
+
       },
 
       afterRender: function() {
         var self = this;
-        self.paper = Raphael("tshirt", 227, 177);
+        self.paper = Raphael("tshirt", 295, 230);
+      },
+
+      addPocket: function( img_url ) {
+        var self = this;
+        if(self.pocket !== undefined) {
+          self.pocket.remove();
+        }
+
+        self.pocket = self.paper.image(img_url, 180, 125, 59, 91);
       },
 
       addImage: function(img_url) {

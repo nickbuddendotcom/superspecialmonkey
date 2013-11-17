@@ -17,6 +17,7 @@ define([
 
       events: {
         "click .image" : "sidebarImageHandler",
+        "click #pockets .grid_cell" : "setPocket",
         "click .grid_cell" : "setPouchColor"
       },
 
@@ -32,9 +33,16 @@ define([
         console.log('rendered');
       },
 
-      sidebarImageHandler: function(e) {
-        var img = $(e.currentTarget).data('img-url');
+      setPocket: function(e) {
+        // dumb way to set current image
+        // TODO: DRY this...
+        $("#pockets .grid_cell").removeClass('current_cell');
+        $(e.currentTarget).closest(".grid_cell").addClass('current_cell');
 
+        Backbone.Mediator.publish('canvas:pocket');
+      },
+
+      sidebarImageHandler: function(e) {
         // dumb way to set current image
         // TODO: DRY this...
         this.$el.find(".grid_cell").removeClass('current_cell');
