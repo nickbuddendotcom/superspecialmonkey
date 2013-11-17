@@ -27,28 +27,8 @@ define([
 
       initialize: function() {
         var self = this;
+
         this.on('render', self.afterRender);
-
-        // Backbone.Mediator.subscribe('canvas:image', function() {
-        //   var current_image = $(".current_cell img").attr('src');
-        //   self.addImage( current_image );
-        // }, this);
-
-        // TODO: DRY these functions...
-        // Backbone.Mediator.subscribe('canvas:pocket', function() {
-        //   var current = $("#pouch .current_cell img").attr('src');
-        //   self.addPocket( current );
-        // }, this);
-
-        // Backbone.Mediator.subscribe('canvas:tshirt', function() {
-        //   var current = $("#shirt .current_cell img").attr('src');
-        //   self.setShirt( current );
-        // }, this);
-
-        // Backbone.Mediator.subscribe('canvas:scene', function() {
-        //   var current = $("#scene .current_cell img").attr('src');
-        //   self.setScene( current );
-        // }, this);
 
         Backbone.Mediator.subscribe("canvas:togglePin", function(args){
           self.togglePin( args.img );
@@ -66,12 +46,24 @@ define([
           self.setPocket( args.img_url );
         });
 
+        Backbone.Mediator.subscribe("canvas:design", function(args){
+          self.setDesign( args.img );
+        });
+
       },
 
       afterRender: function() {
         var self = this;
+
         self.paper = Raphael("tshirt", 295, 229);
         self.pins = self.pins || {};
+
+        // Canvas click handler
+        $("#canvas").click(function(e) {
+          if(e.target.nodeName !== "image") {
+            self.hideOtherHandles();
+          }
+        });
       },
 
       togglePin: function( img ) {
@@ -92,7 +84,7 @@ define([
         } else {
 
           self.pins[img_url] = {
-            el: self.paper.image(img_url, 50, 50, width, height).data("ssm_id", 3)
+            el: self.paper.image(img_url, 50, 50, width, height)
           };
 
           self.hideOtherHandles( img_url );
@@ -100,7 +92,7 @@ define([
           self.pins[img_url].transform = self.paper.freeTransform(self.pins[img_url].el);
           self.pins[img_url].transform.setOpts({
             keepRatio: 'bboxCorners',
-            scale: 'bboxCorners',
+            scale: false,
             draw: 'bbox'
           });
 
@@ -164,6 +156,20 @@ define([
 
         self.pocket = self.paper.image(img_url, 177, 140, 83, 67);
         self.pocket.toFront();
+      },
+
+      setDesign: function( img ) {
+        var self    =  this,
+            img_url = img.attr('src'),
+            width   = img.data("full_width"),
+            height  = img.data("full_height");
+
+        if(self.design) {
+          self.design.remove();
+        }
+
+        self.design = self.paper.image(img_url, 70, 50, width, height).toBack();
+
       }
 
     });

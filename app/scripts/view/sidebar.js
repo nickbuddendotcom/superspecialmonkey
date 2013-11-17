@@ -16,21 +16,26 @@ define([
       el : "#toolbar",
 
       events: {
-        // "click #scene .grid_cell"     : "setScene",
-        // "click #shirt .grid_cell"     : "setShirt",
-        // "click #pouch .grid_cell"     : "setPocket",
-        // "click #pins  .grid_cell"     : "togglePin",
-
+        "click .grid_cell"              : "toggleOnClass",
         "click #pins .grid_cell"        : "setPin",
         "click #scene .grid_cell"       : "setScene",
         "click #shirt .grid_cell"       : "setShirt",
-        "click #pocket .grid_cell"      : "setPocket"
+        "click #pocket .grid_cell"      : "setPocket",
+        "click #design .grid_cell"      : "setDesign"
       },
 
       model: new Backbone.Model(),
 
       initialize: function() {
         var self = this;
+      },
+
+      toggleOnClass: function(e) {
+        $(e.currentTarget).toggleClass('open_cell');
+
+        if($(e.currentTarget).data('radio')) {
+          $(e.currentTarget).parent().find(".grid_cell").not(e.currentTarget).removeClass('open_cell');
+        }
       },
 
       setPin: function(e) {
@@ -52,21 +57,15 @@ define([
       },
 
       setPocket: function(e) {
-
         Backbone.Mediator.publish('canvas:pocket', {
           img_url : $(e.currentTarget).find("img").attr('src')
         });
+      },
 
-        // if($(e.currentTarget).hasClass('current_cell')) {
-        //   return;
-        // }
-
-        // // dumb way to set current image
-        // // TODO: DRY this...
-        // $("#pouch .grid_cell").removeClass('current_cell');
-        // $(e.currentTarget).closest(".grid_cell").addClass('current_cell');
-
-        // Backbone.Mediator.publish('canvas:pocket');
+      setDesign: function(e) {
+        Backbone.Mediator.publish('canvas:design', {
+          img : $(e.currentTarget).find("img")
+        });
       },
 
       sidebarImageHandler: function(e) {

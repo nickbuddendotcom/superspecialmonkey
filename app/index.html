@@ -37,22 +37,25 @@
 
             <h2>
                 <span class="num">1</span>
-                Where is Monkey Adventuring?
+                I am going on a:
             </h2>
 
             <div id="scene" class="grid">
 
-                <div class="grid_cell">
+                <div class="grid_cell" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/scene/ocean.png" width="" height="" alt="" />
                     <h3>Deep Ocean Dive</h3>
                 </div>
 
-                <div class="grid_cell">
+                <div class="grid_cell" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/scene/jungle.png" width="" height="" alt="" />
-                    <h3>Jungle</h3>
+                    <h3>Jungle Expedition</h3>
                 </div>
 
-                <div class="grid_cell">
+                <div class="grid_cell open_cell" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/scene/space.png" width="" height="" alt="" />
                     <h3>Space Voyage</h3>
                 </div>
@@ -61,20 +64,23 @@
 
             <h2>
                 <span class="num">2</span>
-                What Shirt is Monkey Wearing?
+                My shirt is:
             </h2>
 
             <div id="shirt" class="grid">
 
-                <div class="grid_cell grid_cell_item">
+                <div class="grid_cell grid_cell_item open_cell" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/tshirts/blue.png" width="" height="" alt="" />
                 </div>
 
-                <div class="grid_cell grid_cell_item">
+                <div class="grid_cell grid_cell_item" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/tshirts/green.png" width="" height="" alt="" />
                 </div>
 
-                <div class="grid_cell grid_cell_item">
+                <div class="grid_cell grid_cell_item" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/tshirts/purple.png" width="" height="" alt="" />
                 </div>
 
@@ -82,61 +88,96 @@
 
             <h2>
                 <span class="num">3</span>
-                What Color is Monkey's Adventure Pouch?
+                The design I like is:
             </h2>
 
-            <div id="pocket" class="grid">
-                <div class="grid_cell grid_cell_item">
-                    <img class="image" src="images/pocket/blue.png" width="" height="" alt="" />
+            <div id="design" class="grid">
+                <div class="grid_cell grid_cell_item" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/design/jungle.png" data-full_width="154" data-full_height="192" width="" height="" alt="" />
+                </div>
+
+                <div class="grid_cell grid_cell_item" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/design/deepsea.png" data-full_width="154" data-full_height="192" width="" height="" alt="" />
                 </div>
 
                 <div class="grid_cell grid_cell_item">
-                    <img class="image" src="images/pocket/green.png" width="" height="" alt="" />
-                </div>
-
-                <div class="grid_cell grid_cell_item">
-                    <img class="image" src="images/pocket/purple.png" width="" height="" alt="" />
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/design/spaceship.png" data-full_width="154" data-full_height="192" width="" height="" alt="" />
                 </div>
 
             </div>
 
             <h2>
                 <span class="num">4</span>
-                What Tools Does Monkey Need?
+                My adventure pouch is:
+            </h2>
+
+            <div id="pocket" class="grid">
+
+                <div class="grid_cell grid_cell_item" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/pocket/blue.png" width="" height="" alt="" />
+                </div>
+
+                <div class="grid_cell grid_cell_item" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/pocket/green.png" width="" height="" alt="" />
+                </div>
+
+                <div class="grid_cell grid_cell_item" data-radio="true">
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/pocket/purple.png" width="" height="" alt="" />
+                </div>
+
+            </div>
+
+            <h2>
+                <span class="num">5</span>
+                The tools I need are:
             </h2>
 
             <div id="pins" class="grid">
 
                 <div class="grid_cell grid_cell_item">
-                    <img class="image" src="images/pins/coral.png" data-full_width="67" data-full_height="82" width="" height="" alt="" />
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/pins/coral.png" data-full_width="82" data-full_height="67" width="" height="" alt="" />
                 </div>
 
                 <div class="grid_cell grid_cell_item">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/pins/fish.png" data-full_width="83" data-full_height="67" width="" height="" alt="" />
                 </div>
 
                 <div class="grid_cell grid_cell_item">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/pins/planet.png" data-full_width="98" data-full_height="67" width="" height="" alt="" />
                 </div>
 
                 <div class="grid_cell grid_cell_item">
-                    <img class="image" src="images/pins/spaceship.png" data-full_width="154" data-full_height="192" width="" height="" alt="" />
-                </div>
-
-                <div class="grid_cell grid_cell_item">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/pins/spaceship2.png" data-full_width="83" data-full_height="67" width="" height="" alt="" />
                 </div>
 
                 <div class="grid_cell grid_cell_item">
+                    <span class='turned_on'>&#x2713;</span>
                     <img class="image" src="images/pins/star.png" data-full_width="83" data-full_height="67" width="" height="" alt="" />
                 </div>
 
                 <div class="grid_cell grid_cell_item">
-                    <img class="image" src="images/pins/jungle.png" data-full_width="154" data-full_height="192" width="" height="" alt="" />
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/pins/bannana.png" data-full_width="83" data-full_height="67" width="" height="" alt="" />
                 </div>
 
                 <div class="grid_cell grid_cell_item">
-                    <img class="image" src="images/pins/deepsea.png" data-full_width="82" data-full_height="80" width="" height="" alt="" />
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/pins/flies.png" data-full_width="83" data-full_height="67" width="" height="" alt="" />
+                </div>
+
+                <div class="grid_cell grid_cell_item">
+                    <span class='turned_on'>&#x2713;</span>
+                    <img class="image" src="images/pins/magnify.png" data-full_width="83" data-full_height="67" width="" height="" alt="" />
                 </div>
 
             </div>

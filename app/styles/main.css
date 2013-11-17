@@ -62,7 +62,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* General */
 /* ============================================================= */
 body {
-  background: white;
+  background: #F79800;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -136,6 +136,7 @@ h3 {
   background: #fff;
   overflow-y: scroll;
   padding-bottom: 80px;
+  border-left: 1px solid #692300;
 }
 #toolbar #hacky_logoslice {
   width: 352px;
@@ -177,6 +178,35 @@ h3 {
   margin: 0 10px 10px 0;
   text-align: center;
   float: left;
+  position: relative;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=55);
+  opacity: 0.55;
+}
+.grid .grid_cell .turned_on {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 18px;
+  right: -8px;
+  top: -8px;
+  background: #3C92C0;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  border-radius: 100%;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+.grid .grid_cell.open_cell {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+.grid .grid_cell.open_cell .turned_on {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
 .grid .grid_cell img {
   max-width: 100px;
