@@ -36,7 +36,7 @@ define([
 
       afterRender: function() {
         var self = this;
-        self.paper = Raphael("tshirt", 100, 100);
+        self.paper = Raphael("tshirt", 227, 177);
       },
 
       addImage: function(img_url) {

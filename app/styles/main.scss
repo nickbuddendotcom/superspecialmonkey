@@ -44,14 +44,7 @@ body {
 }
 
 #editor {
-	background: image-url("space/tshirt.png");
-}
-#editor_bg {
-	background: image-url("space/bg.png");
-}
-#editor_overlay {
-	background: image-url("space/full.png");
-	@include opacity(.3);
+	background: image-url("space.png");
 }
 
 /* ============================================================= */
