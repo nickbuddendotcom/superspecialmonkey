@@ -16,7 +16,8 @@ define([
       el : "#toolbar",
 
       events: {
-        "click .grid_cell"     : "setShirt"
+        "click #shirt .grid_cell"     : "setShirt",
+        "click #pouch .grid_cell"     : "setPocket"
         // "click .image"                : "sidebarImageHandler",
         // "click #pockets .grid_cell"   : "setPocket",
         // "click .grid_cell"            : "setPouchColor"
@@ -32,6 +33,10 @@ define([
       setShirt: function(e) {
         var self = this;
 
+        if($(e.currentTarget).parent().hasClass('current_cell')) {
+          return;
+        }
+
         $("#shirt .grid_cell").removeClass('current_cell');
         $(e.currentTarget).closest(".grid_cell").addClass('current_cell');
 
@@ -41,7 +46,7 @@ define([
       setPocket: function(e) {
         // dumb way to set current image
         // TODO: DRY this...
-        $("#pockets .grid_cell").removeClass('current_cell');
+        $("#pouch .grid_cell").removeClass('current_cell');
         $(e.currentTarget).closest(".grid_cell").addClass('current_cell');
 
         Backbone.Mediator.publish('canvas:pocket');
