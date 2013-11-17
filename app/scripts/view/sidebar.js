@@ -13,12 +13,13 @@ define([
 
     return BaseView.extend({
 
-      el : "#sidebar",
+      el : "#toolbar",
 
       events: {
-        "click .image" : "sidebarImageHandler",
-        "click #pockets .grid_cell" : "setPocket",
-        "click .grid_cell" : "setPouchColor"
+        "click .grid_cell"     : "setShirt"
+        // "click .image"                : "sidebarImageHandler",
+        // "click #pockets .grid_cell"   : "setPocket",
+        // "click .grid_cell"            : "setPouchColor"
       },
 
       model: new Backbone.Model(),
@@ -26,11 +27,15 @@ define([
       initialize: function() {
         var self = this;
         console.log('init');
-        this.on('render', self.afterRender);
       },
 
-      afterRender: function() {
-        console.log('rendered');
+      setShirt: function(e) {
+        var self = this;
+
+        $("#shirt .grid_cell").removeClass('current_cell');
+        $(e.currentTarget).closest(".grid_cell").addClass('current_cell');
+
+        Backbone.Mediator.publish('canvas:tshirt');
       },
 
       setPocket: function(e) {

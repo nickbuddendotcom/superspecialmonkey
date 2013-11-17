@@ -27,6 +27,8 @@ define([
         var self = this;
         this.on('render', self.afterRender);
 
+        console.log('test');
+
         Backbone.Mediator.subscribe('canvas:image', function() {
           var current_image = $(".current_cell img").attr('src');
           self.addImage( current_image );
@@ -38,10 +40,17 @@ define([
           self.addPocket( current );
         }, this);
 
+        Backbone.Mediator.subscribe('canvas:tshirt', function() {
+          var current = $("#shirt .current_cell img").attr('src');
+          self.setShirt( current );
+        }, this);
+
       },
 
       afterRender: function() {
         var self = this;
+
+        // I don't have an html element yet...
         self.paper = Raphael("tshirt", 161, 194);
 
         // self.overlay = self.paper.path("M0 0L73 0L0 72L0 0");
@@ -59,33 +68,49 @@ define([
         console.log(self.overlay);
       },
 
-      addPocket: function( img_url ) {
+      setShirt: function( img_url ) {
         var self = this;
-        if(self.pocket !== undefined) {
-          self.pocket.remove();
+
+        // don't do this on the canvas, just do it in DIV's
+
+        if(self.shirt !== undefined) {
+          self.shirt.remove();
         }
 
-        self.pocket = self.paper.image(img_url, 180, 125, 59, 91);
+        self.shirt = self.paper.rect(0,0,295,229);
+        console.log('editor shirt', self.shirt);
+
+        // self.shirt.attr("fill", img_url);
+        // self.shirt.toBack();
+      },
+
+      addPocket: function( img_url ) {
+        // var self = this;
+        // if(self.pocket !== undefined) {
+        //   self.pocket.remove();
+        // }
+
+        // self.pocket = self.paper.image(img_url, 180, 125, 59, 91);
       },
 
       addImage: function(img_url) {
-        var self        = this;
+        // var self        = this;
 
-        // dumb...
-        if(self.image !== undefined) {
-          self.image.remove();
-          self.imageTransform.unplug();
-        }
+        // // dumb...
+        // if(self.image !== undefined) {
+        //   self.image.remove();
+        //   self.imageTransform.unplug();
+        // }
 
-        self.image          = self.paper.image(img_url, 100, 100, 200, 200);
-        self.imageTransform = self.paper.freeTransform(self.image );
+        // self.image          = self.paper.image(img_url, 100, 100, 200, 200);
+        // self.imageTransform = self.paper.freeTransform(self.image );
 
-        self.imageTransform.setOpts({
-          scale: false
-        });
+        // self.imageTransform.setOpts({
+        //   scale: false
+        // });
 
-        // temporary
-        self.overlay.toFront();
+        // // temporary
+        // self.overlay.toFront();
       }
 
     });
