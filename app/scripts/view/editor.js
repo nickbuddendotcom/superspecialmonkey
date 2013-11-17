@@ -28,21 +28,15 @@ define([
         this.on('render', self.afterRender);
 
         Backbone.Mediator.subscribe('canvas:image', function() {
-          var current_image = $(".current_image").attr('src');
+          var current_image = $(".current_cell img").attr('src');
           self.addImage( current_image );
-        }, this);
-
-
-        Backbone.Mediator.subscribe('canvas:pouchColor', function() {
-          var color = $(".current_color").css('backgroundColor');
-          self.addPouch( color );
         }, this);
 
       },
 
       afterRender: function() {
         var self = this;
-        self.paper = Raphael("editor", 672, 800);
+        self.paper = Raphael("tshirt", 100, 100);
       },
 
       addImage: function(img_url) {
@@ -60,21 +54,6 @@ define([
         self.imageTransform.setOpts({
           scale: false
         });
-      },
-
-      addPouch: function( color ) {
-        var self        = this;
-        self.pouch      = self.paper.rect(100, 100, 100, 50, 4);
-
-        // testing...
-        self.pouch.attr("fill", color);
-
-        self.pouchTransform = self.paper.freeTransform(self.pouch);
-
-        self.pouchTransform.setOpts({
-          scale: false
-        });
-
       }
 
     });
