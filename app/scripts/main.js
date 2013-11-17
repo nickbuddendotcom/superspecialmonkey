@@ -1,13 +1,13 @@
 require.config({
     paths: {
-        jquery                   : '../bower_components/jquery/jquery',
-	      jqueryui                 : '../bower_components/jquery-ui/jqueryui',
-	      underscore               : '../bower_components/lodash/dist/lodash',
-	      backbone                 : '../bower_components/backbone/backbone',
-	      mediator                 : 'support/backbone.mediator',
-	      raphael 								 : '../bower_components/raphael/raphael',
-	      freeTransform        		 : '../bower_components/raphael.free_transform/raphael.free_transform',
-	    	html2canvas				 : '../bower_components/html2canvas/build/html2canvas'
+        jquery                   	: '../bower_components/jquery/jquery',
+	      jqueryui                 	: '../bower_components/jquery-ui/jqueryui',
+	      underscore               	: '../bower_components/lodash/dist/lodash',
+	      backbone                 	: '../bower_components/backbone/backbone',
+	      mediator                 	: 'support/backbone.mediator',
+	      raphael 								 	: '../bower_components/raphael/raphael',
+	      freeTransform        		 	: '../bower_components/raphael.free_transform/raphael.free_transform',
+	    	html2canvas				 				: '../bower_components/html2canvas/build/html2canvas'
     },
     shim: {
 	    underscore : {

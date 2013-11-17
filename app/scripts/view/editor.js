@@ -5,8 +5,7 @@ define([
   'view/_base',
   'raphael',
   'freeTransform',
-  'mediator',
-  'jqueryui/dialog'
+  'mediator'
 ], function(
   _,
   $,
@@ -27,6 +26,11 @@ define([
       initialize: function() {
         var self = this;
         this.on('render', self.afterRender);
+
+        // Backbone.Mediator.subscribe('canvas:image', function() {
+        //   var current_image = $(".current_cell img").attr('src');
+        //   self.addImage( current_image );
+        // }, this);
 
         // TODO: DRY these functions...
         Backbone.Mediator.subscribe('canvas:pocket', function() {
