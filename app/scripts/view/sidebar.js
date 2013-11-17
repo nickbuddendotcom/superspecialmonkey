@@ -16,6 +16,7 @@ define([
       el : "#toolbar",
 
       events: {
+        "click #scene .grid_cell"     : "setScene",
         "click #shirt .grid_cell"     : "setShirt",
         "click #pouch .grid_cell"     : "setPocket"
         // "click .image"                : "sidebarImageHandler",
@@ -28,6 +29,19 @@ define([
       initialize: function() {
         var self = this;
         console.log('init');
+      },
+
+      setScene: function(e) {
+        var self = this;
+
+        if($(e.currentTarget).parent().hasClass('current_cell')) {
+          return;
+        }
+
+        $("#scene .grid_cell").removeClass('current_cell');
+        $(e.currentTarget).closest(".grid_cell").addClass('current_cell');
+
+        Backbone.Mediator.publish('canvas:scene');
       },
 
       setShirt: function(e) {

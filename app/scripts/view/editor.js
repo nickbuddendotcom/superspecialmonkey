@@ -43,6 +43,11 @@ define([
           self.setShirt( current );
         }, this);
 
+        Backbone.Mediator.subscribe('canvas:scene', function() {
+          var current = $("#scene .current_cell img").attr('src');
+          self.setScene( current );
+        }, this);
+
       },
 
       afterRender: function() {
@@ -50,18 +55,14 @@ define([
 
         // I don't have an html element yet...
         self.paper = Raphael("tshirt", 295, 229);
+      },
 
-        console.log(self.overlay);
+      setScene: function( img_url ) {
+        $('#canvas').css('background-image', 'url(' + img_url + ')');
       },
 
       setShirt: function( img_url ) {
-        var self = this;
-
-        // don't do this on the canvas, just do it in DIV's
         $('#tshirt').css('background-image', 'url(' + img_url + ')');
-
-        // self.shirt.attr("fill", img_url);
-        // self.shirt.toBack();
       },
 
       addPocket: function( img_url ) {
@@ -71,6 +72,7 @@ define([
         }
 
         self.pocket = self.paper.image(img_url, 177, 140, 83, 67);
+        self.pocket.toFront();
       },
 
       addImage: function(img_url) {
