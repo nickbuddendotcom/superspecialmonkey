@@ -19,9 +19,6 @@ define([
         "click #scene .grid_cell"     : "setScene",
         "click #shirt .grid_cell"     : "setShirt",
         "click #pouch .grid_cell"     : "setPocket"
-        // "click .image"                : "sidebarImageHandler",
-        // "click #pockets .grid_cell"   : "setPocket",
-        // "click .grid_cell"            : "setPouchColor"
       },
 
       model: new Backbone.Model(),
@@ -34,7 +31,7 @@ define([
       setScene: function(e) {
         var self = this;
 
-        if($(e.currentTarget).parent().hasClass('current_cell')) {
+        if($(e.currentTarget).hasClass('current_cell')) {
           return;
         }
 
@@ -47,7 +44,7 @@ define([
       setShirt: function(e) {
         var self = this;
 
-        if($(e.currentTarget).parent().hasClass('current_cell')) {
+        if($(e.currentTarget).hasClass('current_cell')) {
           return;
         }
 
@@ -58,6 +55,11 @@ define([
       },
 
       setPocket: function(e) {
+
+        if($(e.currentTarget).hasClass('current_cell')) {
+          return;
+        }
+
         // dumb way to set current image
         // TODO: DRY this...
         $("#pouch .grid_cell").removeClass('current_cell');
