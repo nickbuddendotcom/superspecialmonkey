@@ -107,11 +107,10 @@ define([
           // Click Callback
           self.pins[img_url].el.mousedown(function(e) {
 
-            self.hideOtherHandles( img_url );
-
             // If we're clicking an element without visible handles, show its handles and hide the handles of all others
             if(!self.pins[img_url].transform.handles.bbox) {
               self.pins[img_url].transform.showHandles();
+              self.hideOtherHandles( img_url );
             }
 
           });
