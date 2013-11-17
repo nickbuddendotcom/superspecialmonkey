@@ -69,6 +69,10 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 h3 {
   font-size: 12px;
 }
@@ -98,11 +102,11 @@ h3 {
 }
 
 #tshirt {
-  width: 161px;
-  height: 194px;
+  width: 295px;
+  height: 229px;
   position: absolute;
-  left: 424px;
-  top: 439px;
+  left: 357px;
+  top: 408px;
 }
 
 #editor {
@@ -131,10 +135,12 @@ h3 {
   bottom: 0;
   background: #fff;
   overflow-y: scroll;
+  padding-bottom: 80px;
 }
 #toolbar #hacky_logoslice {
   width: 352px;
   height: 167px;
+  margin-left: 15px;
   display: block;
   background: url('/images/assets/hacky_logoslice.jpg');
   background-repeat: no-repeat;
@@ -142,35 +148,39 @@ h3 {
 #toolbar h2 {
   display: block;
   margin: 15px 0;
+  width: 100%;
+  clear: both;
 }
 #toolbar .num {
   background: #f79800;
   color: #fff;
   padding: 5px 10px;
-  -webkit-border-radius: 0 10px 15px 0;
-  -moz-border-radius: 0 10px 15px 0;
-  -ms-border-radius: 0 10px 15px 0;
-  border-radius: 0 10px 15px 0;
+  -webkit-border-radius: 0 15px 15px 0;
+  -moz-border-radius: 0 15px 15px 0;
+  -ms-border-radius: 0 15px 15px 0;
+  border-radius: 0 15px 15px 0;
   margin: 0 20px 0 -2px;
 }
 
 .grid {
   padding: 20px;
+  display: block;
+  overflow: hidden;
 }
 .grid h3 {
   margin-bottom: 15px;
 }
 .grid .grid_cell {
   width: 100px;
-  height: 100px;
+  height: 85px;
   display: inline-block;
   margin: 0 10px 10px 0;
   text-align: center;
+  float: left;
 }
 .grid .grid_cell img {
   max-width: 100px;
   max-height: 100px;
-  border: 1px solid #aaaaaa;
   margin-bottom: 10px;
 }
 .grid .grid_cell:nth-child(3n+1) {
@@ -193,11 +203,51 @@ h3 {
   margin-top: 10px;
 }
 
+#finished_buttons {
+  padding: 20px;
+}
 #finished_buttons a {
   display: inline-block;
-  font-size: 25px;
+  font-size: 40px;
   color: #f79800;
+  width: 110px;
+  text-align: center;
+  padding: 10px 5px;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
 }
 #finished_buttons a span {
+  margin-top: 5px;
+  display: block;
+  width: 100%;
   font-size: 12px;
+}
+#finished_buttons a:hover {
+  background: #f79800;
+  color: #fff;
+}
+
+#next_adventure {
+  background: url('/images/assets/triangle.png');
+  background-repeat: no-repeat;
+  background-position: center right;
+  color: #fff;
+  display: block;
+  height: 70px;
+  line-height: 70px;
+  width: 350px;
+  padding: 0 20px;
+  margin-left: -3px;
+  font-size: 25px;
 }

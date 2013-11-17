@@ -7,6 +7,7 @@ require.config({
 	      mediator                 	: 'support/backbone.mediator',
 	      raphael 								 	: '../bower_components/raphael/raphael',
 	      freeTransform        		 	: '../bower_components/raphael.free_transform/raphael.free_transform',
+	    	'mediator-js'			 				: '../bower_components/mediator-js/lib/mediator',
 	    	html2canvas				 				: '../bower_components/html2canvas/build/html2canvas'
     },
     shim: {
@@ -32,11 +33,12 @@ require.config({
     }
 });
 
-require(['app', 'jquery', 'router/router'], function (app, $, Router) {
+require(['app', 'jquery', 'router/router', 'mediator-js'], function (app, $, Router, Mediator) {
     'use strict';
 
 		$(function() {
       Router.initialize();
+      Backbone.mediator = new Mediator();
       Backbone.history.start({ pushState: true, root: app.root });
 		});
 

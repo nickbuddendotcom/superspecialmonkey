@@ -3,15 +3,13 @@ define([
   'jquery',
   'backbone',
   'view/editor',
-  'view/sidebar',
-  'view/oden'
+  'view/sidebar'
 ], function(
   _,
   $,
   Backbone,
   Editor,
-  Sidebar,
-  Oden
+  Sidebar
 ) {
     'use strict';
 
@@ -35,8 +33,6 @@ define([
       var sidebar = new Sidebar();
       sidebar.render();
 
-      var oden = new Oden();
-      oden.render();
     });
 
   };

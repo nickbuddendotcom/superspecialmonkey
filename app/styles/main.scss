@@ -101,6 +101,8 @@ h3 {
 	h2 {
 		display: block;
 		margin: 15px 0;
+		width: 100%;
+		clear: both;
 	}
 	.num {
 		background: $highlight;
@@ -112,6 +114,8 @@ h3 {
 }
 .grid {
 	padding: 20px;
+	display: block;
+	overflow: hidden;
 
 	h3 {
 		margin-bottom: 15px;
@@ -122,6 +126,7 @@ h3 {
 		display: inline-block;
 		margin: 0 10px 10px 0;
 		text-align: center;
+		float: left;
 
 		img {
 			max-width: 100px;
