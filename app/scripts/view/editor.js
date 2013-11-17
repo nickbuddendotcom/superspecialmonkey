@@ -95,6 +95,8 @@ define([
             el: self.paper.image(img_url, 50, 50, width, height).data("ssm_id", 3)
           };
 
+          self.hideOtherHandles( img_url );
+
           self.pins[img_url].transform = self.paper.freeTransform(self.pins[img_url].el);
           self.pins[img_url].transform.setOpts({
             keepRatio: 'bboxCorners',
@@ -105,8 +107,6 @@ define([
           // Click Callback
           self.pins[img_url].el.mousedown(function(e) {
 
-            // for testing...this should go in the if()
-            // also this will need to be called when inserting a new image
             self.hideOtherHandles( img_url );
 
             // If we're clicking an element without visible handles, show its handles and hide the handles of all others
@@ -124,15 +124,18 @@ define([
       },
 
       hideOtherHandles: function( active_image_url ) {
-        var self = this;
+        var self = this,
+            active_pin = self.pins[active_image_url] || false;
 
         _.each(self.pins, function(element, index, list) {
-          if(element !== self.pins[active_image_url] ) {
-            // element.transform.hideHandles();
-            // element.transform.atts({ "opacity" : ".5" });
-            console.log('element', element);
+          if(element !== active_pin ) {
+            element.transform.hideHandles();
           }
         });
+
+        if(active_pin) {
+          active_pin.el.toFront();
+        }
 
       },
 
