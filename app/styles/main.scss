@@ -1,6 +1,14 @@
 @import "compass";
 @import "compass/reset";
 
+@import url(http://fonts.googleapis.com/css?family=Lato:700);
+
+/* ============================================================= */
+/* Highlight */
+/* ============================================================= */
+
+$highlight: #F79800;
+
 /* ============================================================= */
 /* General */
 /* ============================================================= */
@@ -8,6 +16,13 @@
 body {
 	background: white;
 	@include box-sizing(border-box);
+	font-family: 'Lato', sans-serif;
+}
+a {
+	text-decoration: none;
+}
+h3 {
+	font-size: 12px;
 }
 
 .wrapper {
@@ -37,11 +52,11 @@ body {
 }
 
 #tshirt {
-	width: 295px;
-	height: 230px;
+	width: 161px;
+	height: 194px;
 	position: absolute;
-	left: 358px;
-	top: 407px;
+	left: 424px;
+	top: 439px;
 }
 
 #editor {
@@ -49,67 +64,127 @@ body {
 }
 
 /* ============================================================= */
-/* Sidebar */
+/* Canvas */
 /* ============================================================= */
 
-#sidebar {
-	width: 300px;
-	float: right;
-	height: 900px; // temp
-	@include border-radius(6px);
-	border: 2px solid #333;
-	margin-top: 25px;
-	overflow: hidden;
+#canvas {
+	width: 1024px;
+	height: 768px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
 
-	.grid_box {
-		@include background-image(linear-gradient(top, #282828, #111));
-		border-bottom: 1px solid #333;
-		padding: 20px;
+/* ============================================================= */
+/* Toolbar */
+/* ============================================================= */
+
+#toolbar {
+	position: fixed;
+	right: 0;
+	left: 1020px;
+	top: 0;
+	bottom: 0;
+	background: #fff;
+	overflow-y: scroll;
+	padding-bottom: 80px;
+
+	#hacky_logoslice {
+		width: 352px;
+		height: 167px;
+		margin-left: 15px;
+		display: block;
+		background: image-url("assets/hacky_logoslice.jpg");
+		background-repeat: no-repeat;
+	}
+	h2 {
+		display: block;
+		margin: 15px 0;
+	}
+	.num {
+		background: $highlight;
+		color: #fff;
+		padding: 5px 10px;
+		@include border-radius(0 15px 15px 0);
+		margin: 0 20px 0 -2px;
+	}
+}
+.grid {
+	padding: 20px;
+
+	h3 {
+		margin-bottom: 15px;
 	}
 	.grid_cell {
-		width: 65px;
-		height: 65px;
+		width: 100px;
+		height: 85px;
 		display: inline-block;
-		margin: 0 5px 5px 0;
-		@include border-radius(4px);
-		border: 1px solid #333;
-		@include box-shadow(0 0 0 3px,rgba(0,0,0,0.5) inset);
-		position: relative;
-		background: #555;
+		margin: 0 10px 10px 0;
+		text-align: center;
 
 		img {
-			width: 57px;
-			height: 57px;
-			margin: 3px;
-			@include border-radius(4px);
-			@include box-shadow(0 0 0 3px,rgba(0,0,0,0.5) inset);
-			border: 1px solid #333;
-			z-index: 1000;
-			position: relative;
+			max-width: 100px;
+			max-height: 100px;
+			margin-bottom: 10px;
 		}
-
-		&:nth-child(4n+1) {
+		&:nth-child(3n+1) {
 			clear: left;
 		}
-		&:nth-child(4n) {
+		&:nth-child(3n) {
 			margin-right: 0;
 		}
-		&.current_cell {
-			@include background-image(linear-gradient(top, #88ECFE, #29B7CF));
-		}
-		&.current_cell {
-			@include background-image(linear-gradient(top, #35AFE9, #2C87BA));
-			border: 1px solid #23587E;
-			@include box-shadow( 0px 1px 0px 0px rgba(255, 255, 255, 0.4) inset, 0px 27px 0px 0px rgba(255, 255, 255, 0.2) inset,1px 1px 1px 1px rgba(255,255,255,.1) inset, -1px 1px 1px 1px rgba(255,255,255,.1) inset);
-			@include transition-property(background);
-			@include transition-duration(.035s);
-			@include transition-timing-function(ease-in);
+		&.grid_cell_item {
+			@include border-radius(8px);
+			background: #BACFE8;
+			border: 1px solid #7F7F7F;
+
+			img {
+				max-width: 80px;
+				max-height: 80px;
+				margin-top: 10px;
+			}
 		}
 	}
 }
-// pockets only
-#pockets {
-	img {
-		background: #fff;
+
+#finished_buttons {
+	padding: 20px;
+
+	a {
+		display: inline-block;
+		font-size: 40px;
+		color: $highlight;
+		width: 110px;
+		text-align: center;
+		padding: 10px 5px;
+		@include transition-property(background);
+		@include transition-duration(.2s);
+		@include transition-timing-function(ease-in-out);
+		@include border-radius(5px);
+
+		span {
+			margin-top: 5px;
+			display: block;
+			width: 100%;
+			font-size: 12px;
+		}
+
+		&:hover {
+			background: $highlight;
+			color: #fff;
+		}
 	}
+}
+#next_adventure {
+	background: image-url('assets/triangle.png');
+	background-repeat: no-repeat;
+	background-position: center right;
+	color: #fff;
+	display: block;
+	height: 70px;
+	line-height: 70px;
+	width: 350px;
+	padding: 0 20px;
+	margin-left: -3px;
+	font-size: 25px;
 }
